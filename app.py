@@ -6,7 +6,7 @@ from read import from_jsonFiles
 def main():
     env = os.environ.get('ENVIRON')
     src_dir=os.environ.get('SRC_DIR')
-    file_pattern=f"{os.environ.get('SRC_FILE_PATTERN')}"
+    file_name=os.environ.get('SRC_FILE')
     src_file_format=os.environ.get('SRC_FILE_FORMAT')
     tgt_dir=os.environ.get('TGT_DIR')
     tgt_file_format=os.environ.get('TGT_FILE_FORMAT')
