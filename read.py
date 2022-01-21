@@ -1,6 +1,6 @@
-def from_jsonFiles(spark, data_dir, file_name, file_format):
+def from_jsonFiles(spark, data_dir, file_pattern, file_format):
     df = spark. \
         read. \
         format(file_format). \
-        load(f'{data_dir}/{file_name}')
+        load(f'{data_dir}/{file_pattern}')
     return df
