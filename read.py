@@ -28,7 +28,7 @@ spark = SparkSession. \
     builder. \
     config('spark.jars.packages', 'org.apache.spark:spark-sql-kafka-0-10_2.12:3.0.1'). \
     config('spark.ui.port', '0'). \
-    config('spark.sql.warehouse.dir', f'/user/saurabh/warehouse'). \
+    config('spark.sql.warehouse.dir', '/user/saurabh/warehouse'). \
     enableHiveSupport(). \
     appName('Python - Kafka and Spark Integration'). \
     master('yarn'). \
