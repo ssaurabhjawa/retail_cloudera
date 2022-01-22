@@ -1,4 +1,4 @@
-from kafka.admin import KafkaAdminClient, NewTopic, KafkaProducer
+from kafka.admin import kafka.admin, KafkaAdminClient, NewTopic, KafkaProducer
 from pyspark.sql import SparkSession
 import json
 
