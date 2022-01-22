@@ -16,5 +16,5 @@ spark = SparkSession. \
 
 spark. \
     read. \
-    json('/home/saurabh/test_source/'). \
+    json('/user/saurabh/test_source'). \
     show()
