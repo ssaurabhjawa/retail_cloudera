@@ -9,7 +9,7 @@ spark = SparkSession. \
     config('spark.ui.port', '0'). \
     config("spark.sql.warehouse.dir", "/user/saurabh/warehouse"). \
     enableHiveSupport(). \
-    appName(f'{username} | Python - Data Processing - Overview'). \
+    appName('Python - Data Processing - Overview'). \
     master('yarn'). \
     getOrCreate()
 
