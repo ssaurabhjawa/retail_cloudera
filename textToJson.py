@@ -5,7 +5,7 @@ import pandas as pd
 data=[]
 with open('/Users/jai_dev/project/internal/retail_poc/data/test_data/part-00000','rb') as f:
     lines=f.read()
-
+print(type(lines))
 with open("retail_j.json", 'w') as rj:
     json.dump(lines.decode("utf-8"),rj)
 
