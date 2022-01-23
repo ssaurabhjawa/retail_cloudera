@@ -8,8 +8,9 @@ import getpass
 username = getpass.getuser()
 
 filename='/home/saurabh/test_source/part-00000'
+
 f = open(filename)
-data = json.load(f)
+data = json.loads(json.dumps([f]))
 f.close()
 
 admin_client = KafkaAdminClient(
