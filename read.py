@@ -29,9 +29,7 @@ f = open(filename)
 data = json.load(f)
 file.close()
 
-
-
-producer = KafkaProducer(bootstrap_servers ="cdp01.itversity.com:2181,cdp02.itversity.com:2181,cdp03.itversity.com")
+producer = KafkaProducer(security_protocol="SSL", bootstrap_servers ="cdp01.itversity.com:2181,cdp02.itversity.com:2181,cdp03.itversity.com")
 producer.send(topicName, data.encode('utf-8'))
 producer.flush()
 
