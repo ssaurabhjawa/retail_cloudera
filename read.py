@@ -11,9 +11,9 @@ admin_client = KafkaAdminClient(
     bootstrap_servers="cdp01.itversity.com:2181,cdp02.itversity.com:2181,cdp03.itversity.com",
     client_id='test'
 )
-
-topicName = NewTopic(name="example_topic", num_partitions=2, replication_factor=3)
-admin_client.create_topics(new_topics=topicName, validate_only=False)
+retail_topic = []
+retail_topic.append(NewTopic(name="example_topic", num_partitions=2, replication_factor=3))
+admin_client.create_topics(new_topics=retail_topic, validate_only=False)
 
 filename='/user/saurabh/test_source/part-00000'
 f = open(filename)
