@@ -8,7 +8,7 @@ import getpass
 username = getpass.getuser()
 
 admin_client = KafkaAdminClient(
-    bootstrap_servers="cdp01.itversity.com:2181,cdp02.itversity.com:2181,cdp03.itversity.com",
+    bootstrap_servers="cdp01.itversity.com:2181,cdp02.itversity.com:2181,cdp03.itversity.com:2181",
     client_id='test'
 )
 
@@ -26,7 +26,7 @@ f = open(filename)
 data = json.load(f)
 f.close()
 
-producer = KafkaProducer(security_protocol="SSL", bootstrap_servers =['cdp01.itversity.com:2181,cdp02.itversity.com:2181,cdp03.itversity.com'],
+producer = KafkaProducer(security_protocol="SSL", bootstrap_servers =['cdp01.itversity.com:2181,cdp02.itversity.com:2181,cdp03.itversity.com:2181'],
                         value_serializer=lambda x:
                         dumps(x).encode('utf-8'))
 for t in topic_list:
@@ -43,7 +43,7 @@ spark = SparkSession. \
     master('yarn'). \
     getOrCreate()
 
-kafka_bootstrap_servers = 'cdp01.itversity.com:2181,cdp02.itversity.com:2181,cdp03.itversity.com'
+kafka_bootstrap_servers = 'cdp01.itversity.com:2181,cdp02.itversity.com:2181,cdp03.itversity.com:2181'
 
 df = spark. \
   readStream. \
