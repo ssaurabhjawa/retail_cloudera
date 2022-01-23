@@ -26,7 +26,7 @@ f = open(filename)
 data = json.load(f)
 f.close()
 
-producer = KafkaProducer(security_protocol="PLAINTEXT", bootstrap_servers =['cdp01.itversity.com:2181,cdp02.itversity.com:2181,cdp03.itversity.com'],
+producer = KafkaProducer(security_protocol="SSL", bootstrap_servers =['cdp01.itversity.com:2181,cdp02.itversity.com:2181,cdp03.itversity.com'],
                         value_serializer=lambda x:
                         dumps(x).encode('utf-8'))
 for t in topic_list:
