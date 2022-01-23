@@ -8,10 +8,14 @@ import getpass
 username = getpass.getuser()
 
 filename='/home/saurabh/test_source/part-00000'
-data=''
-f = open(filename)
-json.load(json.dump([f]), data)
-f.close()
+
+with open(filename, 'w') as json_file:
+    json.dump(list, json_file)
+
+with open(json_file, "r") as read_json_file:
+    data = json.load(read_json_file)
+print(data)
+
 
 admin_client = KafkaAdminClient(
     bootstrap_servers="cdp01.itversity.com:2181,cdp02.itversity.com:2181,cdp03.itversity.com:2181",
