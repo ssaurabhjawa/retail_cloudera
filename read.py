@@ -21,7 +21,7 @@ admin_client.create_topics(new_topics=topic_list, validate_only=False)
 
 
 
-filename='/user/saurabh/test_source/part-00000'
+filename='/home/saurabh/test_source/part-00000'
 f = open(filename)
 data = json.load(f)
 f.close()
