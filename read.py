@@ -1,6 +1,5 @@
 from kafka import KafkaProducer
 from kafka.admin import KafkaAdminClient, NewTopic
-
 from pyspark.sql import SparkSession
 import json
 
@@ -9,20 +8,17 @@ username = getpass.getuser()
 
 filename='/home/saurabh/test_source/part-00000'
 
-with open(filename, 'w') as json_file:
-    json.dump(list, json_file)
-
-with open(json_file, "r") as read_json_file:
-    data = json.load(read_json_file)
-print(data)
-
+with open(filename,'rb') as f:
+    lines=f.read()
+with open("retail_j.json", 'w') as rj:
+    json.dump(lines.decode("utf-8"),rj)
 
 admin_client = KafkaAdminClient(
-    bootstrap_servers="cdp01.itversity.com:2181,cdp02.itversity.com:2181,cdp03.itversity.com:2181",
+    bootstrap_servers="cdp01.itversity.com:2181,cdp02.itversity.com:2181,cdp03.itversity.com:2181/kafka",
     client_id='test'
 )
 
-producer = KafkaProducer(security_protocol="SSL", bootstrap_servers =['cdp01.itversity.com:2181,cdp02.itversity.com:2181,cdp03.itversity.com:2181'],
+producer = KafkaProducer(security_protocol="SSL", bootstrap_servers =['cdp01.itversity.com:2181,cdp02.itversity.com:2181,cdp03.itversity.com:2181/kafka'],
                         value_serializer=json.dumps(data).encode('utf-8'))
 
 topic_list = []
@@ -44,7 +40,7 @@ for t in topic_list:
         master('yarn'). \
         getOrCreate()
 
-    kafka_bootstrap_servers = 'cdp01.itversity.com:2181,cdp02.itversity.com:2181,cdp03.itversity.com:2181'
+    kafka_bootstrap_servers = 'cdp01.itversity.com:2181,cdp02.itversity.com:2181,cdp03.itversity.com:2181/kafka'
 
     df = spark. \
       readStream. \
