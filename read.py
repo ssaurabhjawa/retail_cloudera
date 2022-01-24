@@ -14,7 +14,7 @@ with open("retail_j.json", 'w') as rj:
     json.dump(lines.decode("utf-8"),rj)
 
 admin_client = KafkaAdminClient(
-    bootstrap_servers="cdp01.itversity.com:2181,cdp02.itversity.com:2181,cdp03.itversity.com:2181/kafka",
+    bootstrap_servers="cdp01.itversity.com:2181,cdp02.itversity.com:2181,cdp03.itversity.com:2181",
     client_id='test'
 )
 
